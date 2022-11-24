@@ -1,11 +1,23 @@
 FROM apache/superset
 
+USER root
+RUN apt-get update
+RUN apt-get -y install libpq-dev 
+RUN apt-get -y install python-dev
+RUN apt-get -y install python3-dev
+
+COPY superset_requirements.txt /app/requirements.txt
+RUN pip3 install -r /app/requirements.txt
+
+
 USER superset
 
+COPY ./superset_config.py /app/superset/superset_config.py
 COPY ./custom_security_new.py /app/superset/security/security.py
 COPY ./security_append.py /app/security_append.py
+COPY ./config.py /app/superset/config.py
 # RUN cat /app/security_append.py >> /app/superset/config.py
-RUN grep -vwE "CUSTOM_SECURITY_MANAGER" /app/superset/config.py > /app/superset/config_fixed.py
-RUN cat /app/security_append.py | cat - /app/superset/config_fixed.py > /app/superset/temp && mv /app/superset/temp /app/superset/config.py
-RUN sed -i 's/"GENERIC_CHART_AXES": False,/"GENERIC_CHART_AXES": True,/g' /app/superset/config.py
-RUN sed -i 's/"ENABLE_TEMPLATE_PROCESSING": False,/"ENABLE_TEMPLATE_PROCESSING": True,/g' /app/superset/config.py
+# RUN grep -vwE "CUSTOM_SECURITY_MANAGER" /app/superset/config.py > /app/superset/config_fixed.py
+# RUN cat /app/security_append.py | cat - /app/superset/config_fixed.py > /app/superset/temp && mv /app/superset/temp /app/superset/config.py
+# RUN sed -i 's/"GENERIC_CHART_AXES": False,/"GENERIC_CHART_AXES": True,/g' /app/superset/config.py
+# RUN sed -i 's/"ENABLE_TEMPLATE_PROCESSING": False,/"ENABLE_TEMPLATE_PROCESSING": True,/g' /app/superset/config.py
