@@ -1,0 +1,12 @@
+FROM apache/superset
+
+USER superset
+
+COPY ./custom_security_new.py /app/superset/security/security.py
+COPY ./security_append.py /app/security_append.py
+COPY ./config.py /app/superset/config.py
+# RUN cat /app/security_append.py >> /app/superset/config.py
+# RUN grep -vwE "CUSTOM_SECURITY_MANAGER" /app/superset/config.py > /app/superset/config_fixed.py
+# RUN cat /app/security_append.py | cat - /app/superset/config_fixed.py > /app/superset/temp && mv /app/superset/temp /app/superset/config.py
+# RUN sed -i 's/"GENERIC_CHART_AXES": False,/"GENERIC_CHART_AXES": True,/g' /app/superset/config.py`
+# RUN sed -i 's/"ENABLE_TEMPLATE_PROCESSING": False,/"ENABLE_TEMPLATE_PROCESSING": True,/g' /app/superset/config.py
