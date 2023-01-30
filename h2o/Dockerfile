@@ -9,7 +9,7 @@ FROM debian:stable
 
 WORKDIR /app
 
-COPY ./h2o-3.36.0.4 .
+COPY ./dependencies/h2o-3.38.0.4/ .
 
 RUN apt-get update -y && \
     apt-get install -y libcurl4 && \
@@ -23,8 +23,8 @@ RUN mkdir -p /data
 RUN chmod -R 775 /data
 
 COPY ./h2o-docker-start.sh ./h2o-docker-start.sh
-COPY ./presto-jdbc-0.270.jar .
-COPY ./h2o-3.36.0.4/mysql-connector-java-8.0.28.jar .
+# COPY ./presto-jdbc-0.270.jar .
+# COPY ./h2o-3.38.0.4/mysql-connector-java-8.0.28.jar .
 
 RUN chmod 755 *sh
 

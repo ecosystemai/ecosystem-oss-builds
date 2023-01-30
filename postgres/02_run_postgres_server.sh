@@ -1,1 +1,7 @@
-docker run --name ecosystem-postgres -p 5432:5432 -e POSTGRES_PASSWORD=password -v postgres.conf:/etc/postgresql/postgresql.conf -e PGDATA=/var/lib/postgresql/data/pgdata -v ./postgres_data:/var/lib/postgresql/data -d --network ecosystem --net-alias ecosystem-postgres ecosystemai/ecosystem-postgres
+docker run -t -p 5432:5432 \
+   --name ecosystem-postgres --network ecosystem --net-alias ecosystem-postgres \
+   -e POSTGRES_PASSWORD=password \
+   -v postgres.conf:/etc/postgresql/postgresql.conf \
+   -e PGDATA=/var/lib/postgresql/data/pgdata \
+   -v ~/data/postgres_data:/var/lib/postgresql/data \
+   ecosystemai/ecosystem-postgres
