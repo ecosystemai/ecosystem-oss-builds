@@ -1,3 +1,4 @@
 .DS_Store
 postgres/postgres_data/*
 presto/presto/**
+superset/angular_iframe_test/**
