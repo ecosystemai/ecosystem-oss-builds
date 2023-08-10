@@ -1,2 +1,3 @@
 .DS_Store
 postgres/postgres_data/*
+presto/presto/**

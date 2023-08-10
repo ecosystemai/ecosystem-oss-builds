@@ -2,9 +2,10 @@
 
 ![ECharts](https://github.com/VolkovLabs/volkovlabs-echarts-panel/raw/main/src/img/dashboard.png)
 
-[![Grafana](https://img.shields.io/badge/Grafana-9.4.7-orange)](https://www.grafana.com)
+![Grafana 10](https://img.shields.io/badge/Grafana-10.0.2-orange)
 [![YouTube](https://img.shields.io/badge/YouTube-Playlist-red)](https://youtube.com/playlist?list=PLPow72ygztmQHGWFqksEf3LebUfhqBfFu)
 ![CI](https://github.com/volkovlabs/volkovlabs-echarts-panel/workflows/CI/badge.svg)
+![E2E](https://github.com/volkovlabs/volkovlabs-echarts-panel/workflows/E2E/badge.svg)
 [![codecov](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel/branch/main/graph/badge.svg?token=0m6f0ktUar)](https://codecov.io/gh/VolkovLabs/volkovlabs-echarts-panel)
 [![CodeQL](https://github.com/VolkovLabs/volkovlabs-echarts-panel/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/VolkovLabs/volkovlabs-echarts-panel/actions/workflows/codeql-analysis.yml)
 
@@ -14,13 +15,14 @@ The Apache ECharts plugin is a visualization panel for Grafana that allows you t
 
 [Apache ECharts](https://echarts.apache.org/en/index.html) is a free, powerful charting and visualization library with statistical capabilities. It is written in pure JavaScript and based on zrender.
 
-[![Apache ECharts panel for Grafana | How to create modern dashboards in Grafana | ECharts Tutorial](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/video.png)](https://youtu.be/DxqCrBEmrQw)
+[![Apache ECharts panel for Grafana | Explore possibilities](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/overview.png)](https://youtu.be/S3PiL1p1v5U)
 
 Apache ECharts visualization panel offers an easy way of adding intuitive, interactive, and highly customizable charts into your Grafana dashboard.
 
 ### Requirements
 
-- **Grafana 8.5+, Grafana 9.0+** is required.
+- **Grafana 9** and **Grafana 10** are required for major version 5.
+- **Grafana 8.5** and **Grafana 9** are required for major versions 3 and 4.
 
 ## Getting Started
 
@@ -32,24 +34,23 @@ For the latter, use the following command.
 grafana-cli plugins install volkovlabs-echarts-panel
 ```
 
-## Features
+## Highlights
 
 - Provides Monaco Code Editor for:
-  - Working with Grafana data frames (JavaScript),
+  - Working with Grafana data frames (JavaScript).
   - Updating chart configurations in JSON format.
-- Supports Code Auto formatting.
-- Executes the `setOption()` function using Monaco Code Editor content.
+  - Custom theme configuration.
 - Supports variables and location service to make Charts interactive.
-- Based on the ECharts 5.4.1.
-- Supports Light and Dark modes synchronized with Grafana Theme.
+- Based on the ECharts 5.4.3.
+- Supports Light and Dark themes synchronized with Grafana Theme.
 - Supports SVG and Canvas renderers.
-- Includes USA and World GeoJSON maps. Allows adding custom Map files in the `maps` folder.
+- Includes USA and World GeoJSON maps. Additional maps can be loaded dynamically.
 - Includes [Liquid Fill Chart](https://github.com/ecomfe/echarts-liquidfill), which is usually used to represent data in percentage.
-- Includes [ECharts-GL](https://github.com/ecomfe/echarts-gl), which providing 3D plots, globe visualization, and WebGL acceleration.
+- Includes [WordCloud Chart](https://github.com/ecomfe/echarts-wordcloud), which is usually used to represent data WordCloud format (word frequency).
+- Includes [ECharts-GL](https://github.com/ecomfe/echarts-gl), which provides 3D plots, globe visualization, and WebGL acceleration.
 - Includes [ecStat](https://github.com/ecomfe/echarts-stat), a statistical and data mining tool.
 - Supports Code Editor suggestions for Parameters and variables.
-- Allows displaying Success and Error notifications.
-- Supports Baidu, Gaode, and Google maps using API. Requires to provide access key.
+- Supports Baidu, Gaode, and Google Maps using API. Requires to provide access key.
 - Supports real-time data updates using streaming Data Sources and Grafana Live.
 - Has 100+ ready-as-is examples at [echarts.volkovlabs.io](https://echarts.volkovlabs.io).
 
@@ -61,40 +62,12 @@ grafana-cli plugins install volkovlabs-echarts-panel
 | --------------------------- | ------------------------------------------------------------------- |
 | [ECharts Function](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/options/) | Explains how to configure the main Apache ECharts library function. |
 | [Examples](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/examples/)        | Explains how to get started with ECharts Examples.                  |
+| [Features](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/features/)        | Demonstrates panel features.                                        |
+| [Maps](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/)                | Demonstrates how to work with different maps.                       |
+| [Tutorials](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/)      | Tutorials for Apache ECharts panel.                                 |
 | [Release Notes](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/release/)    | Stay up to date with the latest features and updates.               |
 
-### Features
-
-| Section                      | Description                                                                                                        |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| [Data Sources](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/datasources/)  | Demonstrates how to retrieve data from data sources.                                                               |
-| [Event Handling](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/events/)     | Demonstrates how to react to the triggered events.                                                                 |
-| [ECharts Instance](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/instance/) | Demonstrates how to interact with ECharts container.                                                               |
-| [Streaming](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/streaming/)       | Explains how to configure Apache ECharts for real-time data updates using streaming Data Sources and Grafana Live. |
-| [Variables](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/variables/)       | Demonstrated how to replace Dashboard and Global variables.                                                        |
-
-### Tutorials
-
-| Section                                         | Description                                              |
-| ----------------------------------------------- | -------------------------------------------------------- |
-| [Directed Graph](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/graph/)               | Explains how to build and visualize directed graphs.     |
-| [PNG and SVG images](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/images/)          | Explains how to use images in various formats.           |
-| [Statistical and Data Mining](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/tutorials/ecstat/) | Explains how to use statistical and data mining library. |
-
-### Maps
-
-| Section                 | Description                                    |
-| ----------------------- | ---------------------------------------------- |
-| [GeoJSON](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/geojson/) | Demonstrates how to work with GeoJSON Maps.    |
-| [Baidu](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/baidu/)     | Demonstrates how to work with Baidu Maps API.  |
-| [Gaode](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/gaode/)     | Demonstrates how to work with Gaode Maps API.  |
-| [Google](https://volkovlabs.io/plugins/volkovlabs-echarts-panel/maps/google/)   | Demonstrates how to work with Google Maps API. |
-
-## Tutorials
-
-How to use Data Source in Apache ECharts in 90 seconds. Data parameter explained.
-
-[![How to use Data Source in Apache ECharts in 90 seconds | Grafana Data attribute](https://raw.githubusercontent.com/volkovlabs/volkovlabs-echarts-panel/main/img/datasource.png)](https://youtu.be/K5YNMSIm9AM)
+## Tutorial
 
 Three plugins that make Grafana complete. Dynamic Text, Data Manipulation, and Apache ECharts are all you need to create functional real-world web applications.
 
@@ -105,6 +78,7 @@ Three plugins that make Grafana complete. Dynamic Text, Data Manipulation, and A
 We love to hear from you. There are various ways to get in touch with us:
 
 - Ask a question, request a new feature, and file a bug with [GitHub issues](https://github.com/volkovlabs/volkovlabs-echarts-panel/issues/new/choose).
+- Subscribe to our [YouTube Channel](https://www.youtube.com/@volkovlabs) and add a comment.
 - Sponsor our open-source plugins for Grafana with [GitHub Sponsor](https://github.com/sponsors/VolkovLabs).
 - Star the repository to show your support.
 

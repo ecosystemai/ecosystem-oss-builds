@@ -1,10 +1,51 @@
 # Change Log
 
+## 5.0.0 (2023-07-19)
+
+### Breaking changes
+
+- Requires Grafana 9 and Grafana 10
+
+### Features / Enhancements
+
+- Update Documentation (#182)
+- Update Examples to Grafana 10 (#190)
+- Add Result v2 with unsubscribe function (#188)
+- Update Streaming to redraw charts (#188)
+- Update to Grafana 10.0.0 (#191)
+- Update README and panel options (#192)
+- Remove Grafana 8.5 support (#193)
+- Update to Grafana 10.0.2 dependencies (#195)
+- Update ESLint configuration (#196)
+- Add Wordcloud Extension (#198)
+- Update to Apache ECharts 5.4.3 (#199)
+
+## 4.5.0 (2023-06-03)
+
+### Features / Enhancements
+
+- Migrate to Plugin Tools 1.5.2 (#171, #176)
+- Update to Node 18 and npm (#172, #173)
+- Add an alert for theme parsing error (#175)
+- Update Default Function to support Grafana 10 (#178)
+- Tested with Grafana 10 Preview (#179)
+
+## 4.4.0 (2023-05-25)
+
+### Features / Enhancements
+
+- Increase Test Coverage and update test library (#163)
+- Update to Grafana 9.5.2 (#164)
+- Update Google Maps Extension to 1.6.0 (#164)
+- Add E2E Cypress testing (#165)
+- Add Theme Editor to allow custom themes (#167)
+- Update documentation (#166, #168)
+
 ## 4.3.1 (2023-04-21)
 
 ### Breaking changes
 
-- Due to security reasons getDataSourceSrv parameter was removed (#156)
+- Due to security reasons, getDataSourceSrv parameter was removed (#156)
 
 ## 4.3.0 (2023-04-16)
 
