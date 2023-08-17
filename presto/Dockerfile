@@ -26,10 +26,10 @@
 # ENTRYPOINT ["/bin/bash", "presto-docker-start.sh"]
 
 
-
 ####################################################
 FROM ubuntu:20.04
-RUN apt-get update && \
+RUN apt-get update -y && \
+    apt-get upgrade -y && \
     apt-get install -y libcurl4 && \
     apt-get install -y wget && \
     apt-get install -y gettext-base && \
@@ -44,7 +44,7 @@ RUN pip3 install --no-cache-dir requests
 
 WORKDIR /app
 
-COPY ./presto-server-0.271 /app
+COPY ./presto/presto-server-0.282 /app
 COPY ./presto-docker-start.sh /app/presto-docker-start.sh
 RUN chmod 755 *sh
 EXPOSE 8084

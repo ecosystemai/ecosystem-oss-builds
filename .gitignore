@@ -1,4 +1,5 @@
 .DS_Store
 postgres/postgres_data/*
 presto/presto/**
+h2o/h2o/**
 superset/angular_iframe_test/**
