@@ -44,7 +44,7 @@ RUN pip3 install --no-cache-dir requests
 
 WORKDIR /app
 
-COPY ./presto/presto-server-0.282 /app
+COPY ./presto/presto-server-0.283 /app
 COPY ./presto-docker-start.sh /app/presto-docker-start.sh
 RUN chmod 755 *sh
 EXPOSE 8084

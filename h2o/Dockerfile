@@ -9,7 +9,7 @@ FROM debian:stable
 
 WORKDIR /app
 
-COPY ./dependencies/h2o-3.38.0.4/ .
+COPY ./h2o/h2o-3.42.0.2/ .
 
 RUN apt-get update -y && \
     apt-get install -y libcurl4 && \
@@ -17,7 +17,7 @@ RUN apt-get update -y && \
     apt-get install -y gnupg && \
     apt-get install -y openjdk-17-jre && \
     apt install -y gcc &&  \
-    apt-get install -y python3-pip python-dev
+    apt-get install -y python3-pip python
 
 RUN mkdir -p /data
 RUN chmod -R 775 /data
