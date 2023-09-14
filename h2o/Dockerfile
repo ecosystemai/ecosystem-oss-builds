@@ -5,19 +5,20 @@
 # docker push ecosystemai/ecosystem-worker-h2o:3.37.0.5718
 #
 
-FROM debian:stable
+# FROM debian:stable
+FROM ubuntu:22.04
 
 WORKDIR /app
 
-COPY ./h2o/h2o-3.42.0.2/ .
+COPY ./h2o/h2o-3.42.0.3/ .
 
-RUN apt-get update -y && \
-    apt-get install -y libcurl4 && \
+RUN apt-get update -y
+RUN apt-get install -y libcurl4 && \
     apt-get install -y gettext-base && \
     apt-get install -y gnupg && \
     apt-get install -y openjdk-17-jre && \
     apt install -y gcc &&  \
-    apt-get install -y python3-pip python
+    apt-get install -y python3-pip python3
 
 RUN mkdir -p /data
 RUN chmod -R 775 /data

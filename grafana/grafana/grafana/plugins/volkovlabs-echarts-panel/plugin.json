@@ -40,8 +40,8 @@
         "path": "img/examples.png"
       }
     ],
-    "updated": "2023-07-19",
-    "version": "5.0.0"
+    "updated": "2023-08-11",
+    "version": "5.1.0"
   },
   "name": "Apache ECharts",
   "type": "panel"

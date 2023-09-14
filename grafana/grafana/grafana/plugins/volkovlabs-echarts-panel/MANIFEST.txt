@@ -8,32 +8,32 @@ Hash: SHA512
   "signedByOrg": "volkovlabs",
   "signedByOrgName": "Volkov Labs",
   "plugin": "volkovlabs-echarts-panel",
-  "version": "5.0.0",
-  "time": 1689784003400,
+  "version": "5.1.0",
+  "time": 1691768000237,
   "keyId": "7e4d0c6a708866e7",
   "files": {
-    "plugin.json": "016c2d43516dc970a388bad1cae13bc91e423f4fede1dd56a3677c5c7023e2cb",
-    "module.js.LICENSE.txt": "27f4496e15ee2b96a91f6c2078c18a0af8c133eefad8ad7e43af227019d74714",
-    "maps/USA.json": "7eb797cebe5d24563fbb7b673b5123f3e12d5e233514399d6b74c5a405c4e15d",
-    "maps/world.json": "4c9e872b430c3313ce758ffd75b1b38c12ef490a732c0101568903726e0fec08",
-    "CHANGELOG.md": "b01010de97e3af6371d6ada0914b00921194fc79a03bbb77514814851a0fb354",
     "LICENSE": "b0fc550cc7ef29a8e7b74e75b197f46d2c0c3353eaa319a63bb0575281031c06",
-    "img/logo.svg": "c9b8d6f68dfc1ee5af382107007499a1fa0ac3b18c5191f4e693fb0eef44c17f",
-    "img/dashboard.png": "53b9532dfcbb87b7fe1ce8839c81903395c080a3ea26174dc970dce50d6764ce",
     "img/examples.png": "314ed38b5f8565e47bdbfedfcd2bdd92fc5adb02e6d23265dd70fad2a0832aed",
-    "README.md": "53eeb5f53b55b154f11043c418a8483e84faaf1c6e7b667e82ae68b6ce777c1d",
-    "module.js.map": "4f5eae18f10cc1bd1f8abca4f233ce4e69f9d5c6d2e13ef5f926a8e0c4ca3a2e",
-    "module.js": "4030d7e3184e1ba698394a130b19aae41151142a5828863c05c6ef94e07d859f"
+    "img/dashboard.png": "53b9532dfcbb87b7fe1ce8839c81903395c080a3ea26174dc970dce50d6764ce",
+    "img/logo.svg": "c9b8d6f68dfc1ee5af382107007499a1fa0ac3b18c5191f4e693fb0eef44c17f",
+    "module.js.map": "0f31fa3cbfe8faa527046a887ecbe9065f1c56f22777ff6c8c9f12a3b94ee3df",
+    "module.js": "6bbeb376df0bdb69f4081d09cd26de014dcead544aa4b1ed2fbacb8ed123b097",
+    "plugin.json": "67d421a3ed35426835846370c6a972149e0ab65da3972d892387a34de8e4749b",
+    "README.md": "6512553d8a07122ca7331f963a07bfd64320e4285b0be2e3015e49ea6bbe954e",
+    "CHANGELOG.md": "3998faa0800b28de99bab431708cc1794d1087c6ad2be395c61c274d8096e10c",
+    "maps/world.json": "4c9e872b430c3313ce758ffd75b1b38c12ef490a732c0101568903726e0fec08",
+    "maps/USA.json": "7eb797cebe5d24563fbb7b673b5123f3e12d5e233514399d6b74c5a405c4e15d",
+    "module.js.LICENSE.txt": "27f4496e15ee2b96a91f6c2078c18a0af8c133eefad8ad7e43af227019d74714"
   }
 }
 -----BEGIN PGP SIGNATURE-----
 Version: OpenPGP.js v4.10.10
 Comment: https://openpgpjs.org
 
-wrcEARMKAAYFAmS4DsMAIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
-cIhm57ppAgiofyIiJ4MlzreYqLqF86c35jJnYVoQ5AKXx8YOw0q3q6WBs6gg
-MTrxPQihMqWHf3+fUxuz5oFeHbIuCQVhejGeKQIGKVetl1y2pm4XEfedLdT9
-RE8k7otGO4aU9weCBTbcOhqunJPAufcT9x7swByMeVOFRl1JnRxHGPetFUAt
-Eo1rErQ=
-=JwZ5
+wrkEARMKAAYFAmTWVMAAIQkQfk0ManCIZucWIQTzOyW2kQdOhGNlcPN+TQxq
+cIhm5yVCAgkB6n5oNlZjaWJO8vrX2fLdva8S0rBpYFgHUF08+7xnLPRvMjZd
+W9Cg3O9TekZF9NvWMytiYi/oYxRmgnFfR2UjWG8CCQGpurKmt+ee2LgPcIjP
+mVT2kV5vMwyKpsxmcTiMor1ouCRPz7jnVCChOt7c0JAwAW7YClSwvHeKmsCd
+jePJsZHePQ==
+=wk8g
 -----END PGP SIGNATURE-----
