@@ -1,13 +1,46 @@
-FROM apache/superset
+FROM apache/superset:2.1.1
 
-USER superset
+ENV SECRET_KEY=76598540-83c3-4b74-a9bb-4571535a526c 
+ENV SUPERSET_SECRET_KEY=76598540-83c3-4b74-a9bb-4571535a526c
 
-#COPY ./custom_security_new.py /app/superset/security/security.py
-#COPY ./security_append.py /app/security_append.py
-#COPY ./config.py /app/superset/config.py
 
-# RUN cat /app/security_append.py >> /app/superset/config.py
-# RUN grep -vwE "CUSTOM_SECURITY_MANAGER" /app/superset/config.py > /app/superset/config_fixed.py
-# RUN cat /app/security_append.py | cat - /app/superset/config_fixed.py > /app/superset/temp && mv /app/superset/temp /app/superset/config.py
-# RUN sed -i 's/"GENERIC_CHART_AXES": False,/"GENERIC_CHART_AXES": True,/g' /app/superset/config.py`
-# RUN sed -i 's/"ENABLE_TEMPLATE_PROCESSING": False,/"ENABLE_TEMPLATE_PROCESSING": True,/g' /app/superset/config.py
+# # Switch to root to change file permissions
+# USER root
+
+# # Ensure the app directory exists and is owned by superset
+# RUN mkdir -p /app/superset/ && chown -R superset /app/superset/
+
+# # Switch back to superset user
+# USER superset 
+
+# COPY ./custom_security_new.py /app/superset/security/security.py 
+# COPY ./security_append.py /app/security_append.py 
+
+
+
+
+COPY ./favicon.png /app/static/assets/images/favicon.png
+
+# # Switch back to root to copy config file
+# USER root
+# COPY ./config.py /app/superset/config.py 
+
+# # Change ownership of config file to superset
+# RUN chown superset:superset /app/superset/config.py
+
+# # Switch back to superset user
+# USER superset
+
+
+
+
+
+# RUN cat /app/security_append.py >> /app/superset/config.py 
+
+# RUN grep -vwE "CUSTOM_SECURITY_MANAGER" /app/superset/config.py > /app/superset/config_fixed.py 
+
+# RUN cat /app/security_append.py | cat - /app/superset/config_fixed.py > /app/superset/temp && mv /app/superset/temp /app/superset/config.py 
+
+# # RUN sed -i 's/\"GENERIC_CHART_AXES\": False,/\"GENERIC_CHART_AXES\": True,/g' /app/superset/config.py
+
+# # RUN sed -i 's/\"ENABLE_TEMPLATE_PROCESSING\": False,/\"ENABLE_TEMPLATE_PROCESSING\": True,/g' /app/superset/config.py
