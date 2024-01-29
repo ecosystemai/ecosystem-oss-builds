@@ -9,9 +9,12 @@ echo "=============================================================="
 docker build --platform linux/amd64 -f Dockerfile -t ecosystemai/ecosystem-grafana .
 
 # install plugins
+# default
 docker stop grafana
 docker rm grafana
+echo ""
 echo "ctlC to kill run and build final."
+echo ""
 docker run -it --rm --name grafana --network ecosystem -p 3000:3000 \
    -v /Users/jayvanzyl/Documents/Projects/ecosystem-oss-builds/grafana/grafana/grafana:/var/lib/grafana \
    -e "GF_INSTALL_PLUGINS=marcusolsson-json-datasource,volkovlabs-echarts-panel" \
@@ -19,3 +22,19 @@ docker run -it --rm --name grafana --network ecosystem -p 3000:3000 \
 
 docker build --platform linux/amd64 -f Dockerfile -t ecosystemai/ecosystem-grafana .
 docker build --platform linux/arm64/v8 -f Dockerfile -t ecosystemai/ecosystem-grafana:arm64 .
+
+
+# azure
+docker build --platform linux/amd64 -f Dockerfile-azure -t ecosystemai/ecosystem-grafana:azure .
+
+docker stop grafana
+docker rm grafana
+echo ""
+echo "ctlC to kill run and build final."
+echo ""
+docker run -it --rm --name grafana --network ecosystem -p 3000:3000 \
+   -v /Users/jayvanzyl/Documents/Projects/ecosystem-oss-builds/grafana/grafana/grafana-azure:/var/lib/grafana \
+   -e "GF_INSTALL_PLUGINS=marcusolsson-json-datasource,volkovlabs-echarts-panel" \
+   ecosystemai/ecosystem-grafana:azure
+
+docker build --platform linux/amd64 -f Dockerfile-azure -t ecosystemai/ecosystem-grafana:azure .

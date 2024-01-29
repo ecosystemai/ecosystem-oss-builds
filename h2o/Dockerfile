@@ -10,7 +10,7 @@ FROM ubuntu:22.04
 
 WORKDIR /app
 
-COPY ./h2o/h2o-3.42.0.3/ .
+COPY ./h2o/h2o-3.44.0.3/ .
 
 RUN apt-get update -y
 RUN apt-get install -y libcurl4 && \
