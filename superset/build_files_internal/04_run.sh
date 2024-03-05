@@ -11,6 +11,8 @@ docker run -d -p 8080:8088 \
    -v /Users/jayvanzyl/Desktop/customer.ecosystem.ai/superset-master/data:/data \
    ecosystemai/ecosystem-superset
 
+# --env SUPERSET_CONFIG_PATH=/app/superset_config.py \
+
 export FILE=~/Documents/Projects/ecosystem-ai-next/ecosystem-server/dependencies/ecosystem-unix-starter/data/ecosystem-unix-starter/superset-master/data/superset.db
 if [ -f "$FILE" ]; then
    echo "Existing Superset database: $FILE"
@@ -29,3 +31,7 @@ docker exec -it superset superset init
 
 
 # docker exec -it superset superset load_examples
+
+
+
+# docker run -it -p 8080:8088 -e "SUPERSET_SECRET_KEY=76598540-83c3-4b74-a9bb-4571535a526c" --name superset apache/superset:2.1.3

@@ -1,0 +1,109 @@
+
+# x-superset-image: &superset-image apachesuperset.docker.scarf.sh/apache/superset:3.1.0-py310-arm
+x-superset-image: &superset-image apachesuperset.docker.scarf.sh/apache/superset:3.1.0-py310
+x-superset-depends-on: &superset-depends-on
+  - ecosystem-worker-presto
+  - db
+  - redis
+x-superset-volumes:
+  &superset-volumes # /app/pythonpath_docker will be appended to the PYTHONPATH in the final container
+  - ./docker:/app/docker
+  - ./ecosystem_superset/home:/app/superset_home
+
+version: "3.7"
+services:
+  redis:
+    image: redis:7
+    container_name: superset_cache
+    restart: unless-stopped
+    networks:
+      - ecosystem
+    volumes:
+      - ./ecosystem_superset/redis:/data
+
+  db:
+    env_file: docker/.env-non-dev
+    image: postgres:15
+    container_name: superset_db
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    networks:
+      - ecosystem
+    volumes:
+      - ./ecosystem_superset/postgres:/var/lib/postgresql/data
+      - ./docker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+
+  superset:
+    env_file: docker/.env-non-dev
+    image: *superset-image
+    container_name: superset_app
+    command: ["/app/docker/docker-bootstrap.sh", "app-gunicorn"]
+    user: "root"
+    networks:
+      - ecosystem
+    restart: unless-stopped
+    ports:
+      - 54322:8088
+    depends_on: *superset-depends-on
+    volumes: *superset-volumes
+
+  superset-init:
+    image: *superset-image
+    container_name: superset_init
+    command: ["/app/docker/docker-init.sh"]
+    env_file: docker/.env-non-dev
+    depends_on: *superset-depends-on
+    networks:
+      - ecosystem
+    user: "root"
+    volumes: *superset-volumes
+    healthcheck:
+      disable: true
+
+  superset-worker:
+    image: *superset-image
+    container_name: superset_worker
+    command: ["/app/docker/docker-bootstrap.sh", "worker"]
+    env_file: docker/.env-non-dev
+    restart: unless-stopped
+    depends_on: *superset-depends-on
+    user: "root"
+    networks:
+      - ecosystem
+    volumes: *superset-volumes
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "celery -A superset.tasks.celery_app:app inspect ping -d celery@$$HOSTNAME",
+        ]
+
+  superset-worker-beat:
+    image: *superset-image
+    container_name: superset_worker_beat
+    command: ["/app/docker/docker-bootstrap.sh", "beat"]
+    env_file: docker/.env-non-dev
+    restart: unless-stopped
+    depends_on: *superset-depends-on
+    networks:
+      - ecosystem
+    user: "root"
+    volumes: *superset-volumes
+    healthcheck:
+      disable: true
+
+  ecosystem-worker-presto:
+    image: ecosystemai/ecosystem-worker-presto
+    container_name: ecosystem-worker-presto
+    restart: unless-stopped
+    volumes:
+      - ./ecosystem_superset/presto/etc:/app/etc
+    networks:
+      - ecosystem
+    ports:
+      - "8084:8084"
+
+networks:
+  ecosystem:
+    external: true

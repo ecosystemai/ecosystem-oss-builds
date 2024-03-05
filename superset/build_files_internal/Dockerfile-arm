@@ -1,0 +1,6 @@
+FROM apache/superset:3.1.0-py310-arm
+
+ENV SECRET_KEY=76598540-83c3-4b74-a9bb-4571535a526c 
+ENV SUPERSET_SECRET_KEY=76598540-83c3-4b74-a9bb-4571535a526c
+
+COPY ./favicon.png /app/static/assets/images/favicon.png

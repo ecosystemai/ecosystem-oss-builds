@@ -13,11 +13,11 @@
       "url": "https://grafana.com"
     },
     "build": {
-      "time": 1700583193943,
+      "time": 1704466317680,
       "repo": "https://github.com/grafana/grafana-json-datasource",
       "branch": "main",
-      "hash": "9bbc54e795faf4c167ae32ce4b22de69418ae2e1",
-      "build": 87
+      "hash": "c06182f4c4e75457dd4b89abca9fac9b32f0cd73",
+      "build": 93
     },
     "description": "A data source plugin for loading JSON APIs into Grafana.",
     "keywords": [
@@ -27,10 +27,10 @@
     "links": [
       {
         "name": "Documentation",
-        "url": "https://grafana.github.io/grafana-json-datasource"
+        "url": "https://grafana.com/docs/plugins/marcusolsson-json-datasource/latest/"
       },
       {
-        "name": "Website",
+        "name": "Github",
         "url": "https://github.com/grafana/grafana-json-datasource"
       },
       {
@@ -52,8 +52,8 @@
         "path": "img/light.png"
       }
     ],
-    "updated": "2023-11-21",
-    "version": "1.3.9"
+    "updated": "2024-01-05",
+    "version": "1.3.10"
   },
   "logs": true,
   "metrics": true,
